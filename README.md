@@ -56,7 +56,7 @@ Start Docker
 sudo systemctl enable --now docker
 ```
 
-- Arch Linux
+### Arch Linux
 
 Install Docker
 
