@@ -1,0 +1,1 @@
+docker container exec --user postgres -it postgres bash

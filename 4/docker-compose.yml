@@ -1,0 +1,27 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php
+    volumes:
+      - ./app:/var/www/html
+    ports:
+      - 8080:80
+    depends_on:
+      - pgsql
+
+  pgsql:
+    image: postgres
+    restart: always
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - /db/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: 'www'
+      POSTGRES_USER: 'apache'
+      POSTGRES_PASSWORD: 'passwordp'
+volumes:
+  db-store:
