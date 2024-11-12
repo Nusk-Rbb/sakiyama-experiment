@@ -120,12 +120,12 @@ psql -h localhost -U user -d postgres
 ## kadai4
 
 Samples URL
-http://localhost:8080/samples/pgsql/seiseki.php
-http://localhost:8080/samples/pgsql/sqltest.php
+- http://localhost:8080/samples/pgsql/seiseki.php
+- http://localhost:8080/samples/pgsql/sqltest.php
 
 index.php URL
-http://localhost:8080/index.php
-http://localhost:8080/sqltest.php
+- http://localhost:8080/index.php
+- http://localhost:8080/sqltest.php
 
 ### How to run
 
@@ -142,10 +142,4 @@ docker compose up -d --build
 
 # Linux
 ./kadai4/app/init.sh
-```
-
-### In Sql
-
-```sh
-psql -h localhost -U apache -d www
 ```
