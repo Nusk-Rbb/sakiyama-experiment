@@ -94,11 +94,26 @@ docker compose up -d
 docker compose down
 ```
 
+### In Sql
+
+```sh
+psql -h localhost -U user -d postgres
+```
+
 ## 4
+
+URL
+http://localhost:8080/samples/pgsql/sqltest.php
 
 ### How to run
 
 ```sh
 cd 4/
 docker compose up -d --build
+```
+
+### In Sql
+
+```sh
+psql -h localhost -U apache -d www
 ```

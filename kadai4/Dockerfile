@@ -2,7 +2,6 @@ FROM php:8.1-apache
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 WORKDIR /var/www/html
-COPY samples/ /var/www/html/
 RUN apt update && apt install -y zlib1g-dev g++ libicu-dev zip libzip-dev zip libpq-dev \
     && docker-php-ext-install intl opcache pdo pgsql pdo_pgsql \
     && pecl install apcu \
