@@ -7,10 +7,27 @@
 1. Download Docker Desktop
 https://www.docker.com/get-started/
 
-2. Install Docker Desktop and Restart your PC
+2. Install Docker Desktop and Restart Your PC
+
+3. Download PostgreSQL
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+
+4. Install PostgreSQL
+
+5. Open Edit Environment
+![](image/OpenEnvironmentEditor.png)
+
+6. Add PostgreSQL Path to PATH
+```
+C:\Program Files\PostgreSQL\17\bin
+```
+![](image/EditPath.png)
+![](image/SetEnvironment.png)
+
 
 Reference
-https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3
+[Qiita Reference](https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3)
+[]()
 
 ### Ubuntu
 
@@ -79,12 +96,12 @@ Start and Enable Docker
 sudo systemctl enable --now docker.service
 ```
 
-## 3
+## kadai3
 
 ### How to run
 
 ```sh
-cd 3
+cd kadai3
 docker compose up -d
 ```
 
@@ -100,7 +117,7 @@ docker compose down
 psql -h localhost -U user -d postgres
 ```
 
-## 4
+## kadai4
 
 URL
 http://localhost:8080/samples/pgsql/sqltest.php
@@ -108,7 +125,7 @@ http://localhost:8080/samples/pgsql/sqltest.php
 ### How to run
 
 ```sh
-cd 4/
+cd kadai4
 docker compose up -d --build
 ```
 
