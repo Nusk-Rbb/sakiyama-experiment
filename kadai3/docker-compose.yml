@@ -7,7 +7,8 @@ services:
     volumes:
       - db-store:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: 'user'
-      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'www'
+      POSTGRES_USER: 'apache'
+      POSTGRES_PASSWORD: 'passwordp'
 volumes:
   db-store:

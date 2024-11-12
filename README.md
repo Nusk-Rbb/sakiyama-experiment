@@ -94,10 +94,16 @@ docker compose up -d
 docker compose down
 ```
 
-### In Sql
+### Into SQL Console
 
 ```sh
-psql -h localhost -U user -d postgres
+# Windows
+cd kadai3\
+psql.bat
+
+# Linux
+cd kadai3/
+./psql.sh
 ```
 
 ## kadai4
