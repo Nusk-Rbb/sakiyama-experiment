@@ -1,2 +1,3 @@
-psql -h localhost -p 5432 -U apache -d www -f db/init.sjis.sql
-psql -h localhost -p 5432 -U apache -d www -f samples/pgsql/seiseki.sjis.sql
+docker cp db postgres:/tmp/
+docker exec -it postgres psql -U apache -d www -f /tmp/db/init.sql
+docker exec -it postgres psql -U apache -d www -f /tmp/db/seiseki.sql
