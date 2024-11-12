@@ -9,25 +9,8 @@ https://www.docker.com/get-started/
 
 2. Install Docker Desktop and Restart Your PC
 
-3. Download PostgreSQL
-https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
-
-4. Install PostgreSQL
-
-5. Open Edit Environment
-![](image/OpenEnvironmentEditor.png)
-
-6. Add PostgreSQL Path to PATH
-```
-C:\Program Files\PostgreSQL\17\bin
-```
-![](image/EditPath.png)
-![](image/SetEnvironment.png)
-
-
 Reference
 [Qiita Reference](https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3)
-[]()
 
 ### Ubuntu
 
