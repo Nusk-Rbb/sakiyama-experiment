@@ -46,7 +46,7 @@
 //    print "SQL: ${sql}<br>\n";
 
 // ＤＢサーバへの接続
-    $con = pg_connect("dbname='www' user='apache' password='passworda'");
+    $con = pg_connect("host=postgres port=5432 dbname='www' user='apache' password='passwordp'");
     if (!$con){
         print "ＤＢサーバへの接続に失敗しました<br>\n";
         exit;
