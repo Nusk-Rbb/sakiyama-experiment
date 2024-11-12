@@ -129,6 +129,16 @@ cd kadai4
 docker compose up -d --build
 ```
 
+### Init SQL Tables
+
+```
+# Windows
+init.bat
+
+# Linux
+./init.sh
+```
+
 ### In Sql
 
 ```sh
