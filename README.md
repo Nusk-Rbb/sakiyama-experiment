@@ -121,8 +121,10 @@ docker compose up -d --build
 
 ```
 # Windows
-.\kadai4\app\init.bat
+cd kadai4\app
+init.bat
 
 # Linux
-./kadai4/app/init.sh
+cd kadai4/app
+./init.sh
 ```
