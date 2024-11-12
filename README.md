@@ -128,3 +128,15 @@ init.bat
 cd kadai4/app
 ./init.sh
 ```
+
+### Into SQL Console
+
+```
+# Windows
+cd kadai4\
+psql.bat
+
+# Linux
+cd kadai4/
+psql.sh
+```
