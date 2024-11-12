@@ -1,6 +1,16 @@
 # Sakiyama Group Experiment
 
-## Install packages
+## Install Docker
+
+### Windows
+
+1. Download Docker Desktop
+https://www.docker.com/get-started/
+
+2. Install Docker Desktop and Restart your PC
+
+Reference
+https://qiita.com/zembutsu/items/a98f6f25ef47c04893b3
 
 ### Ubuntu
 
