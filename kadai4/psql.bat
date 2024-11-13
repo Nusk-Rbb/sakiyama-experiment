@@ -1,1 +1,0 @@
-docker container exec -it postgres psql -U apache -d www

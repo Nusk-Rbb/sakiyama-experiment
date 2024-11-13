@@ -1,0 +1,2 @@
+docker cp main.sql postgres:/tmp/
+docker exec -it postgres psql -U apache -d www -f /tmp/main.sql
