@@ -34,8 +34,8 @@ sudo apt update
 
 Setup Docker
 ```sh
-    sudo groupadd docker
-    sudo usermod -aG docker <user name>
+sudo groupadd docker
+sudo usermod -aG docker <user name>
 ```
 Start Docker
 ```sh
