@@ -128,10 +128,12 @@ docker compose up -d --build
 ```
 # Windows
 cd kadai4\app
+ren init init.bat
 init.bat
 
 # Linux
 cd kadai4/app
+mv init init.sh
 ./init.sh
 ```
 
@@ -140,9 +142,11 @@ cd kadai4/app
 ```
 # Windows
 cd kadai4\
+ren psql psql.bat
 psql.bat
 
 # Linux
 cd kadai4/
+mv psql psql.sh
 psql.sh
 ```
