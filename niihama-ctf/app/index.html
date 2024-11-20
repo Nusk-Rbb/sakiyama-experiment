@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>ログイン/サインアップ</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <header>
+            <button id="loginBtn">ログイン</button>
+            <button id="signupBtn">サインアップ</button>
+        </header>
+
+        <!-- ログイン -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close">×</span>
+                <form action="login.php" method="post">
+                    <label for="username">ユーザー名:</label><br>
+                    <input type="text" id="username" name="username"
+                        required><br><br>
+                    <label for="password">パスワード:</label><br>
+                    <input type="password" id="password" name="password"
+                        required><br><br>
+                    <input type="submit" value="ログイン">
+                </form>
+            </div>
+        </div>
+
+        <!-- サインアップ -->
+        <div id="signupModal" class="modal">
+            <div class="modal-content">
+                <span class="close">×</span>
+                <form action="signup.php" method="post">
+                    <label for="new_username">ユーザー名:</label><br>
+                    <input type="text" id="new_username" name="new_username"
+                        required><br><br>
+                    <label for="new_email">メールアドレス:</label><br>
+                    <input type="email" id="new_email" name="new_email"
+                        required><br><br>
+                    <label for="new_password">パスワード:</label><br>
+                    <input type="password" id="new_password" name="new_password"
+                        required><br><br>
+                    <label for="confirm_password">パスワード(確認):</label><br>
+                    <input type="password" id="confirm_password"
+                        name="confirm_password" required><br><br>
+                    <input type="submit" value="サインアップ">
+                </form>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
+</html>
