@@ -18,7 +18,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - /db/data:/var/lib/postgresql/data
+      - ./db:/tmp
     environment:
       POSTGRES_DB: 'www'
       POSTGRES_USER: 'apache'

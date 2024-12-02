@@ -7,3 +7,4 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 );
 
+GRANT ALL ON users TO apache;
