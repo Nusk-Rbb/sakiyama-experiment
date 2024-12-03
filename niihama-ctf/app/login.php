@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve username and password
@@ -18,15 +19,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($user && password_verify($password, $user['password'])) {
             // Login successful (set session variables, redirect, etc.)
-            session_start();
             $_SESSION['username'] = $username;
-            header("Location: index.html"); // Redirect to protected page
+            $_SESSION['message'] = "ログインに成功しました。";
+            header('Location: /');
             exit;
         } else {
-            echo "Invalid username or password.";
+            $_SESSION['error_message'] = 'ログインに失敗しました。';
+            header('Location: /');
+            exit;
         }
     } catch (PDOException $e) {
-        echo "Database Error: " . $e->getMessage();
+        echo "<script>alert('Database Error: " . $e->getMessage() . "');</script>"; // Display error message Database Error;
     }
 }
 ?>

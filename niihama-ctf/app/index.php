@@ -7,19 +7,33 @@
     </head>
     <body>
         <header>
-            <img src="img/chara.png">
+            <a href="/"><img src="img/chara.png"></a>
             <div class="container">
                 <h1>Niihama CTF</h1>
                 <p>Welcome to Niihama CTF!!</p>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Challenges</a></li>
-                    <li><a href="#">Difficulty</a></li>
-                    <li><a href="#">Ranking</a></li>
-                    <li><a href="#">Notice</a></li>
-                    <li id="loginBtn"><a href="#">Login</a></li>
-                    <li id="signupBtn"><a href="#">SignUp</a></li>
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        echo '
+                            <li><a href="#">Challenges</a></li>
+                            <li><a href="#">Difficulty</a></li>
+                            <li><a href="#">Ranking</a></li>
+                            <li><a href="#">Notice</a></li>
+                            <li><a href="#">'. $_SESSION['username'] . '</a></li>
+                            <li><a href="#">Score ' . $_SESSION['score'] . '</a></li>
+                            <li><a href="logout.php">Logout</a></li>
+                            ';
+                    } else {
+                        echo '
+                            <li><a href="#">Notice</a></li>
+                            <li id="loginBtn"><a href="#">Login</a></li>
+                            <li id="signupBtn"><a href="#">SignUp</a></li>
+                            <li><a href="logout.php">Logout</a></li>
+                            ';
+                    }
+                    ?>
                 </ul>
             </nav>
         </header>
@@ -61,6 +75,18 @@
                 </form>
             </div>
         </div>
+
+        <?php
+        if (isset($_SESSION['error_message'])) {
+            $error_message = notification($_SESSION['error_message']);
+            echo $error_message;
+        }
+
+        if (isset($_SESSION['message'])) {
+            $message = notification($_SESSION['message']);
+            echo $message;
+        }
+        ?>
         <script src="js/script.js"></script>
     </body>
 </html>

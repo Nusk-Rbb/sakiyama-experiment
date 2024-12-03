@@ -29,3 +29,20 @@ window.onclick = function (event) {
     signupModal.style.display = "none";
   }
 };
+
+// 通知を表示する関数
+function showNotification(message) {
+  const notification = document.querySelector('.notification');
+  notification.textContent = message;
+  notification.classList.add('show');
+
+  //  1 一定時間後に非表示にする
+  setTimeout(() => {
+    notification.classList.remove('show');
+  }, 3000); // 3秒後に非表示
+}
+
+// 例: 5秒後に通知を表示
+setTimeout(() => {
+  showNotification('新しいお知らせがあります！');
+}, 5000);

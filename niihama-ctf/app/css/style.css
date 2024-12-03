@@ -62,3 +62,38 @@ img {
   border: 1px solid #888;
   width: 30%;
 }
+
+.notification-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /*他の要素よりも手前に表示*/
+}
+
+.notification {
+  background-color: #f0f0f0;
+  padding: 10px;
+  animation: slide-in 0.5s ease-in-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.notification {
+  /* ... */
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s, transform 0.5s;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}

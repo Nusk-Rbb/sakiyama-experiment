@@ -24,9 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':password', $hashedPassword);
 
             if ($stmt->execute()) {
-                echo "サインアップに成功しました。"; // Redirect or display message
+                $_SESSION['message'] = 'サインアップに成功しました。';
+                header('Location: /');
             } else {
-                echo "サインアップに失敗しました。";  // Provide more specific error messages
+                $_SESSION['error_message'] = 'サインアップに失敗しました。';
+                header('Location: /');
             }
         }
 
