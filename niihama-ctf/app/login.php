@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Database connection (PostgreSQL)
     try {
-        $pdo = new PDO("pgsql:host=postgres;dbname=www", "apache", "passwordp");
+        $pdo = new PDO("pgsql:host=postgres;dbname=www", "apache", "passworda");
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful (set session variables, redirect, etc.)
             session_start();
             $_SESSION['username'] = $username;
-            header("Location: dashboard.php"); // Redirect to protected page
+            header("Location: index.html"); // Redirect to protected page
             exit;
         } else {
             echo "Invalid username or password.";

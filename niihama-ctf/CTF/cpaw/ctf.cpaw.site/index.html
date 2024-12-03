@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>CpawCTF - Main page</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="./bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	<body style="background-image:url('https://pbs.twimg.com/media/CNaXFt4VEAAkSUy.jpg:small');"> --!>
+
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="./index.php">CpawCTF</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="./index.php">Challenges</a></li>
+						<li ><a href="difficulty.php">Difficulty</a></li>
+						<li ><a href="ranking.php">Ranking</a></li>
+						<li ><a href="notice.php">Notice</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+			
+						<li class="dropdown">
+							<a class="dropdown-toggle" href="#" data-toggle="dropdown" >
+								SignUp<span class="caret"></span>
+							</a>
+							<div class="dropdown-menu" style="padding:17px;">
+								<form class="form" method="post" action="./signup.php">
+									<input type="hidden" name="token" value="2ca673f5724d88d2cb434e74ed62447d801fbdd3cfb11619477f28b1a0c1bb36">
+									<input class="form-control input-sm" name="user_name" type="text" placeholder="ScreenName" required>
+									<input class="form-control input-sm" name="user_id" type="text" placeholder="UserID" required>
+									<input class="form-control input-sm" name="password" type="password" placeholder="Password" required> 
+									<input class="form-control input-sm" name="pass_verify" type="password" placeholder="Password (again)" required>
+									<button style="margin-top: 5px;" type="submit" id="btnRegister" class="btn btn-primary btn-block">Sign Up</button>
+								</form>
+							</div>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" href="#" data-toggle="dropdown" >
+								Login<span class="caret"></span>
+							</a>
+							<div class="dropdown-menu" style="padding:17px;">
+								<form class="form" method="post" action="./login.php">
+									<input type="hidden" name="token" value="2ca673f5724d88d2cb434e74ed62447d801fbdd3cfb11619477f28b1a0c1bb36">
+									<input class="form-control input-sm" name="user_name" type="text" placeholder="ScreenName" required>
+									<input class="form-control input-sm" name="password" type="password" placeholder="Password" required>
+									<button style="margin-top: 5px;" type="submit" id="btnLogin" class="btn btn-primary btn-block" >Login</button>
+								</form>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	<div class="container">
+		<div class="theme-showcase">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="jumbotron">
+						<h1>CpawCTF</h1>
+						<p class="lead"><p style="font-size:xx-large;">Welcome to CpawCTF!!</p><br><br>CTFは初めてですか？一度<a href="http://sandbox.spica.bz/cpaw_ctf/about_ctf.html">こちら</a>を参考にしてください！<br><strong>スコアサーバへの攻撃はおやめください</strong><br>お問い合わせは、twitterアカウント @porisuteru または @nomuken  へリプライなどを飛ばしてください。</p>
+						<div class="well  well-sm">
+							All of the flag has the following form : <strong>cpaw{example}</strong>
+						</div>
+						<p class="lead">CpawCTF is unlimited!</p>					</div>
+				</div>
+			</div>
+		</div>
+
+		</div>
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="./jquery1.11.1/jquery-1.11.1.min.js"></script>
+		<script src="./bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+	</body>
+</html>
