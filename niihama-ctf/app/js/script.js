@@ -2,6 +2,7 @@ const loginModal = document.getElementById("loginModal");
 const signupModal = document.getElementById("signupModal");
 const loginBtn = document.getElementById("loginBtn");
 const signupBtn = document.getElementById("signupBtn");
+const notificationModal = document.getElementById("notificationModal");
 
 // モーダルを開く
 loginBtn.onclick = function () {
@@ -10,6 +11,7 @@ loginBtn.onclick = function () {
 signupBtn.onclick = function () {
   signupModal.style.display = "block";
 };
+
 
 // モーダルを閉じる (Xボタンと外側クリック)
 const closeButtons = document.querySelectorAll(".close"); // All close buttons

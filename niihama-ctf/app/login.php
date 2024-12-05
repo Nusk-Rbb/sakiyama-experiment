@@ -1,5 +1,4 @@
 <?php
-session_start();
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve username and password
@@ -19,17 +18,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($user && password_verify($password, $user['password'])) {
             // Login successful (set session variables, redirect, etc.)
-            $_SESSION['username'] = $username;
-            $_SESSION['message'] = "ログインに成功しました。";
+            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['password'] = $user['password'];
+
+            // Get the user's score
+            $stmt = $pdo->prepare("SELECT * FROM scores WHERE user_id = :user_id");
+            $stmt->bindParam(':user_id', $user['user_id']);
+            $stmt->execute();
+            $user_score = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Check if the score was successfully retrieved
+            if($user_score) {
+                $_SESSION['score'] = $user_score['score'];
+                $_SESSION['message'] = 'ログインに成功しました。';
+            } else {
+                $_SESSION['error_message'] = 'スコアの取得に失敗しました。';
+                header('Location: /');
+                exit;
+            }
+
             header('Location: /');
-            exit;
+
         } else {
             $_SESSION['error_message'] = 'ログインに失敗しました。';
             header('Location: /');
             exit;
         }
     } catch (PDOException $e) {
-        echo "<script>alert('Database Error: " . $e->getMessage() . "');</script>"; // Display error message Database Error;
+        echo 'Error: ' . $e->getMessage();
     }
+    exit;
 }
 ?>

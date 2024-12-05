@@ -10,7 +10,8 @@ body {
 
 header {
   background-color: #7f7f7f;
-  padding: 20px;
+  padding: 20px; /* Adjust padding if needed */
+  height: 80px; /* Define a height for consistent positioning */
   display: flex;
 }
 
@@ -18,11 +19,11 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: right;
-  padding-top: 5rem;
+  padding-top: 4rem;
 }
 
 nav li {
-  margin: 0 10px; /* 左右に10pxのマージン */
+  margin: 0 10px; /* Adjust margin for spacing */
 }
 
 nav a {

@@ -1,3 +1,9 @@
+<?php
+    include("login.php");
+    include("signup.php");
+    include("notification.php");
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -15,23 +21,47 @@
             <nav>
                 <ul>
                     <?php
-                    if (isset($_SESSION['username'])) {
-                        echo '
-                            <li><a href="#">Challenges</a></li>
-                            <li><a href="#">Difficulty</a></li>
-                            <li><a href="#">Ranking</a></li>
-                            <li><a href="#">Notice</a></li>
-                            <li><a href="#">'. $_SESSION['username'] . '</a></li>
-                            <li><a href="#">Score ' . $_SESSION['score'] . '</a></li>
-                            <li><a href="logout.php">Logout</a></li>
+                    // Check for the cookie on every page load
+                    try{
+                        $pdo = new PDO("pgsql:host=postgres;dbname=www", "apache", "passworda");
+                        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        if (isset($_SESSION['user_id'])) {
+                            $user_id = $_SESSION['user_id'];
+                            // User is logged in, set session variables
+                            $user_query = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
+                            $stmt->bindParam("user_id", $user_id, PDO::PARAM_INT);
+                            $stmt->execute();
+
+                            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                            if($user) {
+                                $_SESSION['username'] = $user['username'];
+                                $_SESSION['score'] = $user['score'];
+                                print '
+                                    <li><a href="#">Challenges</a></li>
+                                    <li><a href="#">Difficulty</a></li>
+                                    <li><a href="#">Ranking</a></li>
+                                    <li><a href="#">Notice</a></li>
+                                    <li><a href="dashboard.php">'. $_SESSION['username'] . '</a></li>
+                                    <li><a href="#">Score ' . $_SESSION['score'] . '</a></li>
+                                    <li><a href="logout.php">Logout</a></li>
+                                ';
+                            }
+                            // User is not logged in
+                            print '
+                                <li><a href="#">Notice</a></li>
+                                <li id="loginBtn"><a href="#">Login</a></li>
+                                <li id="signupBtn"><a href="#">SignUp</a></li>
                             ';
-                    } else {
-                        echo '
-                            <li><a href="#">Notice</a></li>
-                            <li id="loginBtn"><a href="#">Login</a></li>
-                            <li id="signupBtn"><a href="#">SignUp</a></li>
-                            <li><a href="logout.php">Logout</a></li>
+                        } else {
+                            // User is not logged in
+                            print '
+                                <li><a href="#">Notice</a></li>
+                                <li id="loginBtn"><a href="#">Login</a></li>
+                                <li id="signupBtn"><a href="#">SignUp</a></li>
                             ';
+                        }
+                    } catch (PDOException $e) {
+                        echo 'DB接続エラー: ' . $e->getMessage();
                     }
                     ?>
                 </ul>
@@ -41,6 +71,14 @@
         <div class="container">
             <p>スコアサーバへの攻撃はおやめください</p>
             <p>フラグの形式は niihama{example} です。</p>
+            <?php
+                if(isset($_SESSION['error_message'])) {
+                    echo '<p>エラー:' . $_SESSION['error_message'] . '</p><br>';
+                }
+                if(isset($_SESSION['message'])) {
+                    echo '<p>メッセージ:' . $_SESSION['message'] . '</p><br>';
+                }
+            ?>
         </div>
 
         <!-- ログイン -->
@@ -76,17 +114,20 @@
             </div>
         </div>
 
-        <?php
-        if (isset($_SESSION['error_message'])) {
-            $error_message = notification($_SESSION['error_message']);
-            echo $error_message;
-        }
+        <!-- 通知 -->
+        <div id="notificationModal" class="modal">
+            <div class="modal-content">
+                <?php
+                    if(isset($_SESSION['error_message'])) {
+                        echo '<p>エラー:' . $_SESSION['error_message'] . '</p><br>';
+                    }
+                    if(isset($_SESSION['message'])) {
+                        echo '<p>メッセージ:' . $_SESSION['message'] . '</p><br>';
+                    }
+                ?>
+            </div>
+        </div>
 
-        if (isset($_SESSION['message'])) {
-            $message = notification($_SESSION['message']);
-            echo $message;
-        }
-        ?>
         <script src="js/script.js"></script>
     </body>
 </html>
