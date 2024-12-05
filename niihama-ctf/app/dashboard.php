@@ -42,6 +42,7 @@
                                 $_SESSION['username'] = $user['username'];
                                 $_SESSION['score'] = $score['score'];
                                 print '
+                                    <li><a href="/">Home</a></li>
                                     <li><a href="/challenges">Challenges</a></li>
                                     <li><a href="/ranking">Ranking</a></li>
                                     <li><a href="/notice">Notice</a></li>
@@ -50,13 +51,6 @@
                                     <li><a href="/logout.php">Logout</a></li>
                                 ';
                             }
-                        } else {
-                            // User is not logged in
-                            print '
-                                <li><a href="#">Notice</a></li>
-                                <li id="loginBtn"><a href="#">Login</a></li>
-                                <li id="signupBtn"><a href="#">SignUp</a></li>
-                            ';
                         }
                     } catch (PDOException $e) {
                         echo 'DB接続エラー: ' . $e->getMessage();
