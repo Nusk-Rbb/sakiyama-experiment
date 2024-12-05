@@ -69,7 +69,7 @@
     <!-- ログイン -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <form action="login.php" method="post">
+            <form action="/login.php" method="post">
                 <label for="username">ユーザー名:</label><br>
                 <input type="text" id="username" name="username" required><br><br>
                 <label for="password">パスワード:</label><br>
@@ -82,7 +82,7 @@
     <!-- サインアップ -->
     <div id="signupModal" class="modal">
         <div class="modal-content">
-            <form action="signup.php" method="post">
+            <form action="/signup.php" method="post">
                 <label for="new_username">ユーザー名:</label><br>
                 <input type="text" id="new_username" name="new_username" required><br><br>
                 <label for="new_password">パスワード:</label><br>
@@ -108,7 +108,7 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

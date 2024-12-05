@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <a href="/"><img src="/img/chara.png"></a>
+        <img src="/img/chara.png">
         <div class="container">
             <h1>Niihama CTF</h1>
             <p>Welcome to Niihama CTF!!</p>
@@ -68,6 +68,34 @@
         <h2>お知らせ</h2>
     </div>
 
+    <!-- ログイン -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <form action="/login.php" method="post">
+                <label for="username">ユーザー名:</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">パスワード:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <input type="submit" value="ログイン">
+            </form>
+        </div>
+    </div>
+
+    <!-- サインアップ -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <form action="/signup.php" method="post">
+                <label for="new_username">ユーザー名:</label><br>
+                <input type="text" id="new_username" name="new_username" required><br><br>
+                <label for="new_password">パスワード:</label><br>
+                <input type="password" id="new_password" name="new_password" required><br><br>
+                <label for="confirm_password">パスワード(確認):</label><br>
+                <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+                <input type="submit" value="サインアップ">
+            </form>
+        </div>
+    </div>
+
     <!-- 通知 -->
     <div id="notificationModal" class="modal">
         <div class="modal-content">
@@ -82,7 +110,7 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

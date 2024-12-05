@@ -43,8 +43,87 @@
 
 <body>
     <div class="main">
-        <h1>Challenges</h1>
-        <p>Coming soon...</p>
+        <!-- level 1 -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Level 1</h3>
+
+
+            </div>
+        </div>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <!--<th class="col-md-1">#</th>-->
+                    <th>Title</th>
+                    <th class="col-md-1">Points</th>
+                    <th class="col-md-1">Solved</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <td><a href="tutorial.php">[Misc] Tutorial</a></td>
+                <td>10</td>
+                <td class="text-success">OK</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!-- level 2 -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Level 2</h3>
+
+
+            </div>
+        </div>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <!--<th class="col-md-1">#</th>-->
+                    <th>Title</th>
+                    <th class="col-md-1">Points</th>
+                    <th class="col-md-1">Solved</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <td><a href="tutorial.php">[Misc] Tutorial</a></td>
+                <td>10</td>
+                <td class="text-success">OK</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!-- level 3 -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Level 3</h3>
+
+
+            </div>
+        </div>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <!--<th class="col-md-1">#</th>-->
+                    <th>Title</th>
+                    <th class="col-md-1">Points</th>
+                    <th class="col-md-1">Solved</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <td><a href="tutorial.php">[Misc] Tutorial</a></td>
+                <td>10</td>
+                <td class="text-success">OK</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
     </div>
 </body>
 

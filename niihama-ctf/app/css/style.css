@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -10,20 +10,19 @@ body {
 
 header {
   background-color: #7f7f7f;
-  padding: 20px; /* Adjust padding if needed */
-  height: 80px; /* Define a height for consistent positioning */
+  padding: 20px;
   display: flex;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   padding-top: 4rem;
 }
 
 nav li {
-  margin: 0 10px; /* Adjust margin for spacing */
+  margin: 0 10px;
 }
 
 nav a {
@@ -35,7 +34,7 @@ nav a {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 img {
@@ -43,7 +42,6 @@ img {
   height: auto;
 }
 
-/* モーダルスタイル */
 .modal {
   display: none;
   position: fixed;
@@ -69,13 +67,21 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999; /*他の要素よりも手前に表示*/
+  z-index: 9999;
 }
 
 .notification {
   background-color: #f0f0f0;
   padding: 10px;
   animation: slide-in 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s, transform 0.5s;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes slide-in {
@@ -87,14 +93,136 @@ img {
   }
 }
 
-.notification {
-  /* ... */
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: opacity 0.3s, transform 0.5s;
+.panel-default .panel-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
 }
 
-.notification.show {
-  opacity: 1;
-  transform: translateY(0);
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin: 1em 0;
+  font-weight: bold;
+}
+
+.panel > .table:last-child,
+.panel > .table-responsive:last-child > .table:last-child {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.panel > .table,
+.panel > .table-responsive > .table,
+.panel > .panel-collapse > .table {
+  margin-bottom: 0;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+table {
+  background-color: transparent;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: gray;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+}
+
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 5px;
+}
+
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+
+table td[class*="col-"],
+table th[class*="col-"] {
+  position: static;
+  display: table-cell;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1,
+.col-xs-2, .col-sm-2, .col-md-2, .col-lg-2,
+.col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
+.col-xs-4, .col-sm-4, .col-md-4, .col-lg-4,
+.col-xs-5, .col-sm-5, .col-md-5, .col-lg-5,
+.col-xs-6, .col-sm-6, .col-md-6, .col-lg-6,
+.col-xs-7, .col-sm-7, .col-md-7, .col-lg-7,
+.col-xs-8, .col-sm-8, .col-md-8, .col-lg-8,
+.col-xs-9, .col-sm-9, .col-md-9, .col-lg-9,
+.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10,
+.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+th {
+  text-align: left;
+}
+
+td, th {
+  padding: 0;
+}
+
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
 }
