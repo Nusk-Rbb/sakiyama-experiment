@@ -1,6 +1,13 @@
 <?php
-    include("db/db_manage.php");
+    include("../db/db_manage.php");
+    // 認証処理
     session_start();
+    if (!isset($_SESSION['logged_in'])) {
+        header('WWW-Authenticate: Basic realm="Restricted Area"');
+        header('HTTP/1.0 401 Unauthorized');
+        echo 'You are not authorized to access this page';
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -60,41 +67,7 @@
         </header>
 
         <div class="container">
-            <p>スコアサーバへの攻撃はおやめください</p>
             <p>フラグの形式は niihama{example} です。</p>
-        </div>
-
-        <!-- ログイン -->
-        <div id="loginModal" class="modal">
-            <div class="modal-content">
-                <form action="login.php" method="post">
-                    <label for="username">ユーザー名:</label><br>
-                    <input type="text" id="username" name="username"
-                        required><br><br>
-                    <label for="password">パスワード:</label><br>
-                    <input type="password" id="password" name="password"
-                        required><br><br>
-                    <input type="submit" value="ログイン">
-                </form>
-            </div>
-        </div>
-
-        <!-- サインアップ -->
-        <div id="signupModal" class="modal">
-            <div class="modal-content">
-                <form action="signup.php" method="post">
-                    <label for="new_username">ユーザー名:</label><br>
-                    <input type="text" id="new_username" name="new_username"
-                        required><br><br>
-                    <label for="new_password">パスワード:</label><br>
-                    <input type="password" id="new_password" name="new_password"
-                        required><br><br>
-                    <label for="confirm_password">パスワード(確認):</label><br>
-                    <input type="password" id="confirm_password"
-                        name="confirm_password" required><br><br>
-                    <input type="submit" value="サインアップ">
-                </form>
-            </div>
         </div>
 
         <!-- 通知 -->

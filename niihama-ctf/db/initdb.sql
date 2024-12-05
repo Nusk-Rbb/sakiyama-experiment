@@ -39,6 +39,8 @@ EXECUTE PROCEDURE insert_user_score();
 
 INSERT INTO users (username, password) VALUES ('admin', '$2y$10$lYYHSZc5lFTBuG2J3wOhFeN0FmcKf7q5syZvHnU9mw1f6GARwAjKa');
 
+UPDATE scores SET score = 9900 WHERE user_id = 1;
+
 SELECT * FROM users;
 SELECT * FROM scores;
 SELECT * FROM flags;
