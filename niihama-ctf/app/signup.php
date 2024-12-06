@@ -25,9 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if($user) {
                 session_start();
                 $_SESSION['user_id'] = $user['user_id'];
-                $_SERVER['PHP_AUTH_USER'] = $user['username'];
-                $_SERVER['PHP_AUTH_PW'] = $user['password'];
-                header('Location: /dashboard.php');
+                $_SESSION['logged_in'] = true;
+                header('Location: /');
             } else {
                 $_SESSION['error_message'] = 'ユーザーIDの取得に失敗しました。';
                 header('Location: /');
