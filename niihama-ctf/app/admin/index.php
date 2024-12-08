@@ -21,7 +21,9 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/admin">管理者ページ</a></li>
-                <li><a href="/admin/user.php">ユーザー管理</a></li>
+                <li><a href="/admin/user">ユーザー管理</a></li>
+                <li><a href="/admin/flag">フラグ管理</a></li>
+                <li><a href="/admin/challenge">問題用ユーザー管理</a></li>
             </ul>
         </nav>
     </header>
@@ -36,7 +38,7 @@
             <?php
                 try {
                     $pdo = db_connect();
-                    $sql = "SELECT * FROM scores ORDER BY score ASC";
+                    $sql = "SELECT * FROM scores ORDER BY user_id";
                     $scores = fetchAll($pdo, $sql);
                     foreach ($scores as $score) {
                         echo '<tr><td>' . $score['user_id'] . '</td><td>' . $score['score'] . '</td></tr>';
@@ -57,7 +59,7 @@
             <?php
                 try {
                     $pdo = db_connect();
-                    $sql = "SELECT * FROM users ORDER BY user_id ASC";
+                    $sql = "SELECT * FROM users ORDER BY user_id";
                     $users = fetchAll($pdo, $sql);
                     foreach ($users as $user) {
                         echo '<tr><td>' . $user['user_id'] . '</td><td>' . $user['username'] . '</td><td>' . $user['password'] . '</td></tr>';
@@ -77,7 +79,7 @@
             <?php
                 try {
                     $pdo = db_connect();
-                    $sql = "SELECT * FROM flags ORDER BY flag_id ASC";
+                    $sql = "SELECT * FROM flags ORDER BY flag_id";
                     $flags = fetchAll($pdo, $sql);
                     foreach ($flags as $flag) {
                         echo '<tr><td>' . $flag['flag_id'] . '</td><td>' . $flag['flag'] . '</td></tr>';
@@ -138,7 +140,7 @@
             <?php
                 try {
                     $pdo = db_connect();
-                    $sql = "SELECT * FROM solves ORDER BY user_id ASC";
+                    $sql = "SELECT * FROM solves ORDER BY user_id";
                     $solves = fetchAll($pdo, $sql);
                     foreach ($solves as $solve) {
                         if($solve['solved'] == 1) {

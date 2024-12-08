@@ -60,15 +60,16 @@ AFTER INSERT ON users
 FOR EACH ROW
 EXECUTE PROCEDURE insert_user_score();
 
+-- Insert user solve Trigger
 CREATE OR REPLACE FUNCTION insert_user_solves()
 RETURNS TRIGGER AS $$
+DECLARE
+    flag_id_rec RECORD;
 BEGIN
-    INSERT INTO solves (user_id, flag_id, solved)
-    VALUES (NEW.user_id, 1, FALSE);
-    INSERT INTO solves (user_id, flag_id, solved)
-    VALUES (NEW.user_id, 2, FALSE);
-    INSERT INTO solves (user_id, flag_id, solved)
-    VALUES (NEW.user_id, 3, FALSE);
+    FOR flag_id_rec IN SELECT flag_id FROM flags LOOP
+        INSERT INTO solves (user_id, flag_id, solved)
+        VALUES (NEW.user_id, flag_id_rec.flag_id, FALSE);
+    END LOOP;
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -78,12 +79,31 @@ AFTER INSERT ON users
 FOR EACH ROW
 EXECUTE PROCEDURE insert_user_solves();
 
-INSERT INTO user_ch1 (username, password) VALUES ('admin', 'password');
-INSERT INTO user_ch1 (username, password) VALUES ('test', 'test');
-INSERT INTO user_ch1 (username, password) VALUES ('user1', 'pass');
-INSERT INTO user_ch2 (username, password) VALUES ('admin', 'password');
-INSERT INTO user_ch2 (username, password) VALUES ('test', 'test');
-INSERT INTO user_ch2 (username, password) VALUES ('user1', 'pass');
+-- Update flag solve Trigger
+CREATE OR REPLACE FUNCTION insert_flags_solves()
+RETURNS TRIGGER AS $$
+DECLARE
+    user_id_rec RECORD;
+BEGIN
+    FOR user_id_rec IN SELECT user_id FROM users LOOP
+        INSERT INTO solves (user_id, flag_id, solved)
+        VALUES (user_id_rec.user_id, NEW.flag_id, FALSE);
+    END LOOP;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_flag_insert
+AFTER INSERT ON flags
+FOR EACH ROW
+EXECUTE PROCEDURE insert_flags_solves();
+
+INSERT INTO user_ch1 (username, password) VALUES ('admin1', 'password1');
+INSERT INTO user_ch1 (username, password) VALUES ('test1', 'test1');
+INSERT INTO user_ch1 (username, password) VALUES ('user1', 'pass1');
+INSERT INTO user_ch2 (username, password) VALUES ('admin2', 'password2');
+INSERT INTO user_ch2 (username, password) VALUES ('test2', 'test2');
+INSERT INTO user_ch2 (username, password) VALUES ('user2', 'pass2');
 
 INSERT INTO flags (flag) VALUES ('niihama{PHP_has_SQL_Injection_r43fai3}');
 INSERT INTO flags (flag) VALUES ('niihama{OS_command_Injection_71dajq84}');

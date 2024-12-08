@@ -96,18 +96,14 @@
     </div>
 
     <!-- 通知 -->
-    <div id="notificationModal" class="modal">
-        <div class="modal-content">
-            <?php
-                    if(isset($_SESSION['error_message'])) {
-                        echo '<p>エラー:' . $_SESSION['error_message'] . '</p><br>';
-                    }
-                    if(isset($_SESSION['message'])) {
-                        echo '<p>メッセージ:' . $_SESSION['message'] . '</p><br>';
-                    }
-                ?>
-        </div>
-    </div>
+    <?php
+    if(isset($_SESSION['error_message'])) {
+        echo '<p>エラー:' . $_SESSION['error_message'] . '</p><br>';
+    }
+    if(isset($_SESSION['message'])) {
+        echo '<p>メッセージ:' . $_SESSION['message'] . '</p><br>';
+    }
+    ?>
 
     <script src="/js/script.js"></script>
 </body>

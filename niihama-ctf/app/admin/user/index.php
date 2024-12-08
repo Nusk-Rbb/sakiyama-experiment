@@ -19,7 +19,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/admin/">Admin Home</a></li>
+                <li><a href="/admin/">管理者用ページ</a></li>
                 <li><a href="/admin/user">ユーザー管理</a></li>
                 <li><a href="insert.php">登録</a></li>
                 <li><a href="update.php">変更</a></li>

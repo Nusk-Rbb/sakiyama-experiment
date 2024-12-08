@@ -20,7 +20,7 @@
         <nav>
             <ul>
                 <li><a href="/admin/">Admin Home</a></li>
-                <li><a href="/admin/user">ユーザー管理</a></li>
+                <li><a href="/admin/flag">フラグ管理</a></li>
                 <li><a href="insert.php">登録</a></li>
                 <li><a href="update.php">変更</a></li>
                 <li><a href="delete.php">削除</a></li>
@@ -29,12 +29,9 @@
     </header>
 
     <div class="main">
-        <h2>ユーザー登録ページ</h2>
+        <h2>フラグ登録ページ</h2>
         <form action="insert.php" method="POST">
-            ユーザー名
-            <input type="text" name="username" size="10">
-            パスワード
-            <input type="password" name="password" size="10">
+            <input type="text" name="flag" placeholder="フラグ名">
             <input type="submit" name="insert" value="登録">
         </form>
     </div>
@@ -43,12 +40,11 @@
 </html>
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $flag = $_POST['flag'];
     try {
         $pdo = db_connect();
 
-        $insert = insert($pdo, "users", ["username" => $username, "password" => password_hash($password, PASSWORD_DEFAULT)]);
+        $insert = insert($pdo, "flags", ["flag" => $flag]);
         if($insert){
             echo "登録に成功しました";
         } else {

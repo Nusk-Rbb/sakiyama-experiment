@@ -7,6 +7,7 @@ session_unset();
 session_destroy();
 
 // ログインページにリダイレクト
+$_SESSION['error_message'] = 'ログアウトしました';
 header('Location: /');
 exit;
 ?>
