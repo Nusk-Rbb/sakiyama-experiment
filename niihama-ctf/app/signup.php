@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        $pdo = db_connect('www', 'apache', 'passworda');
+        $pdo = db_connect();
         
         $sql = "SELECT * FROM users WHERE username = :username";
         $user = fetch($pdo, $sql, ["username"=> $username]);

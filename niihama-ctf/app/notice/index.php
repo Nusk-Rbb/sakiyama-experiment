@@ -23,7 +23,7 @@
                 <?php
                     // Check for the cookie on every page load
                     try {
-                        $pdo = db_connect('postgres', 'www', 'apache', 'passworda');
+                        $pdo = db_connect();
                         if (isset($_SESSION['user_id'])) {
                             $user_id = $_SESSION['user_id'];
                             // User is logged in, set session variables
@@ -72,9 +72,9 @@
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <form action="/login.php" method="post">
-                <label for="username">ユーザー名:</label><br>
+                <label for="username">ユーザー名</label><br>
                 <input type="text" id="username" name="username" required><br><br>
-                <label for="password">パスワード:</label><br>
+                <label for="password">パスワード</label><br>
                 <input type="password" id="password" name="password" required><br><br>
                 <input type="submit" value="ログイン">
             </form>
@@ -85,11 +85,11 @@
     <div id="signupModal" class="modal">
         <div class="modal-content">
             <form action="/signup.php" method="post">
-                <label for="new_username">ユーザー名:</label><br>
+                <label for="new_username">ユーザー名</label><br>
                 <input type="text" id="new_username" name="new_username" required><br><br>
-                <label for="new_password">パスワード:</label><br>
+                <label for="new_password">パスワード</label><br>
                 <input type="password" id="new_password" name="new_password" required><br><br>
-                <label for="confirm_password">パスワード(確認):</label><br>
+                <label for="confirm_password">パスワード(確認)</label><br>
                 <input type="password" id="confirm_password" name="confirm_password" required><br><br>
                 <input type="submit" value="サインアップ">
             </form>

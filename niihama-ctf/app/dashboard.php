@@ -28,7 +28,7 @@
                     <?php
                     // Check for the cookie on every page load
                     try {
-                        $pdo = db_connect('postgres', 'www', 'apache', 'passworda');
+                        $pdo = db_connect();
                         if (isset($_SESSION['user_id'])) {
                             $user_id = $_SESSION['user_id'];
                             // User is logged in, set session variables

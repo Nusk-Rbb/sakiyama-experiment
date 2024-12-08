@@ -1,6 +1,5 @@
 <?php
     include("../db/db_manage.php");
-    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -21,13 +20,14 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
+                <li><a href="/admin">管理者ページ</a></li>
+                <li><a href="/admin/user.php">ユーザー管理</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="main">
         <h2>管理者ページ</h2>
-        <p>管理者ユーザーのみアクセス可能です。</p>
         <table class="scores">
             <tr>
                 <th>ユーザーID</th>
@@ -35,7 +35,7 @@
             </tr>
             <?php
                 try {
-                    $pdo = db_connect('www', 'apache', 'passworda');
+                    $pdo = db_connect();
                     $sql = "SELECT * FROM scores ORDER BY score ASC";
                     $scores = fetchAll($pdo, $sql);
                     foreach ($scores as $score) {
@@ -56,7 +56,7 @@
             </tr>
             <?php
                 try {
-                    $pdo = db_connect('www', 'apache', 'passworda');
+                    $pdo = db_connect();
                     $sql = "SELECT * FROM users ORDER BY user_id ASC";
                     $users = fetchAll($pdo, $sql);
                     foreach ($users as $user) {
@@ -76,7 +76,7 @@
             </tr>
             <?php
                 try {
-                    $pdo = db_connect('www', 'apache', 'passworda');
+                    $pdo = db_connect();
                     $sql = "SELECT * FROM flags ORDER BY flag_id ASC";
                     $flags = fetchAll($pdo, $sql);
                     foreach ($flags as $flag) {
@@ -96,7 +96,7 @@
             </tr>
             <?php
                 try {
-                    $pdo = db_connect('www', 'apache', 'passworda');
+                    $pdo = db_connect();
                     $sql = "SELECT * FROM user_ch1";
                     $users = fetchAll($pdo, $sql);
                     foreach ($users as $user) {
@@ -116,7 +116,7 @@
             </tr>
             <?php
                 try {
-                    $pdo = db_connect('www', 'apache', 'passworda');
+                    $pdo = db_connect();
                     $sql = "SELECT * FROM user_ch2";
                     $users = fetchAll($pdo, $sql);
                     foreach ($users as $user) {
@@ -137,7 +137,7 @@
             </tr>
             <?php
                 try {
-                    $pdo = db_connect('www', 'apache', 'passworda');
+                    $pdo = db_connect();
                     $sql = "SELECT * FROM solves ORDER BY user_id ASC";
                     $solves = fetchAll($pdo, $sql);
                     foreach ($solves as $solve) {

@@ -1,6 +1,9 @@
 <?php
-function db_connect($dbname, $user, $password): PDO|string {
+function db_connect(): PDO|string {
     $host = 'postgres';
+    $dbname = 'www';
+    $user = 'apache';
+    $password = 'passworda';
     try {
         $dsn = "pgsql:host=$host;dbname=$dbname";
         $pdo = new PDO($dsn, $user, $password);
@@ -31,6 +34,15 @@ function insert($pdo, $table, $data): void {
     $columns = implode(',', array_keys($data));
     $placeholders = ':' . implode(',:', array_keys($data));
     $sql = "INSERT INTO $table ($columns) VALUES ($placeholders)";
+    execute($pdo, $sql, $data);
+}
+
+function update($pdo, $table, $data, $where): void {
+    $set = [];
+    foreach ($data as $column => $value) {
+        $set[] = "$column = :$column";
+    }
+    $sql = "UPDATE $table SET " . implode(',', $set) . " WHERE $where";
     execute($pdo, $sql, $data);
 }
 ?>
