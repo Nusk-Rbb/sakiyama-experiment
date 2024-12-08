@@ -4,9 +4,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ... (retrieve form data as in previous examples)
     $username = $_POST['new_username'];
     $password = $_POST['new_password'];
+    $confirmPassword = $_POST['confirm_password'];
+
+    if($password !== $confirmPassword) {
+        echo 'パスワードが一致しません。';
+    }
 
     try {
-        $pdo = db_connect('postgres', 'www', 'apache', 'passworda');
+        $pdo = db_connect('www', 'apache', 'passworda');
         
         $sql = "SELECT * FROM users WHERE username = :username";
         $user = fetch($pdo, $sql, ["username"=> $username]);
@@ -28,9 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['logged_in'] = true;
                 header('Location: /');
             } else {
-                $_SESSION['error_message'] = 'ユーザーIDの取得に失敗しました。';
-                header('Location: /');
-                exit;
+                echo 'ユーザー登録に失敗しました。';
             }
             exit;
         }

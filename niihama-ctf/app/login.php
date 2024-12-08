@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Database connection (PostgreSQL)
     try {
-        $pdo = db_connect('postgres', 'www', 'apache', 'passworda');
+        $pdo = db_connect('www', 'apache', 'passworda');
 
         $sql = "SELECT * FROM users WHERE username = :username";
         $user = fetch($pdo, $sql, ['username' => $username]);

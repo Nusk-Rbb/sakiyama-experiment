@@ -1,5 +1,6 @@
 <?php
-function db_connect($host, $dbname, $user, $password): PDO|string {
+function db_connect($dbname, $user, $password): PDO|string {
+    $host = 'postgres';
     try {
         $dsn = "pgsql:host=$host;dbname=$dbname";
         $pdo = new PDO($dsn, $user, $password);
@@ -19,6 +20,11 @@ function execute($pdo, $sql, $params = []): mixed {
 function fetch($pdo, $sql, $params = []): mixed {
     $stmt = execute($pdo, $sql, $params);
     return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function fetchAll($pdo, $sql, $params = []): mixed {
+    $stmt = execute($pdo, $sql, $params);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function insert($pdo, $table, $data): void {
