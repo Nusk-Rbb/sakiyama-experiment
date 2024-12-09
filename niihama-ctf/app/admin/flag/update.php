@@ -53,7 +53,7 @@
             ?>
             </select>
             <input type="text" name="new_flag" placeholder="新しい値を入力">
-            <input type="submit" name="update" value="更新">
+            <input type="submit" name="update" value="更新" required>
         </form>
     </div>
 </body>

@@ -57,7 +57,7 @@
                 <option value="username">ユーザー名</option>
                 <option value="password">パスワード</option>
             </select>
-            <input type="text" name="value" placeholder="新しい値を入力">
+            <input type="text" name="value" placeholder="新しい値を入力" required>
             <input type="submit" name="update" value="更新">
         </form>
     </div>

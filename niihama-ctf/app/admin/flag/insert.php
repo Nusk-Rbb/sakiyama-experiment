@@ -32,7 +32,7 @@
         <h2>フラグ登録ページ</h2>
         <form action="insert.php" method="POST">
             <input type="text" name="flag" placeholder="フラグ名">
-            <input type="submit" name="insert" value="登録">
+            <input type="submit" name="insert" value="登録" required>
         </form>
     </div>
 </body>
@@ -43,6 +43,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $flag = $_POST['flag'];
     try {
         $pdo = db_connect();
+
+        $sql = "SELECT * FROM flags WHERE flag = :flag";
+        $user = fetch($pdo, $sql, ["flag" => $flag]);
+        // Check if the username already exists
+        if ($user) {
+            echo '既にフラグが登録されています。';
+            exit;
+        }
 
         $insert = insert($pdo, "flags", ["flag" => $flag]);
         if($insert){
