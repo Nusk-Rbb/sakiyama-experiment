@@ -1,1 +1,1 @@
-docker exec -it postgres psql -h localhost -p 5432 -U apache -d www -f db/show_tables.sql
+docker exec -it postgres psql -h localhost -p 5432 -U apache -d www -f /tmp/show_tables.sql

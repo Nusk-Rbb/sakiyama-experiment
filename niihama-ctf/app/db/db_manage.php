@@ -1,10 +1,11 @@
 <?php
 function db_connect(): PDO|string {
+    $host       = 'postgres';
     $dbname     = 'www';
     $user       = 'apache';
     $password   = 'passworda';
     try {
-        $dsn = "pgsql:dbname=$dbname";
+        $dsn = "pgsql:host=$host;dbname=$dbname";
         $pdo = new PDO($dsn, $user, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
