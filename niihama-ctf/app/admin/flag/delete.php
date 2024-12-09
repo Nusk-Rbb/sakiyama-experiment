@@ -29,7 +29,7 @@
     </header>
 
     <div class="main">
-        <h2>ユーザー削除ページ</h2>
+        <h2>フラグ削除ページ</h2>
         <form action="delete.php" method="POST">
             <select name="flag">
             <option value="---">削除するフラグ</option>
