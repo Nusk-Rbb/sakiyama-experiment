@@ -1,1 +1,1 @@
-docker container exec --user postgres -it postgres psql -h localhost -p 5432 -U apache -d www
+psql -h localhost -p 5432 -U apache -d www

@@ -29,7 +29,7 @@
     </header>
 
     <div class="main">
-        <h2>管理者ページ</h2>
+        <h2>フラグ管理ページ</h2>
         <table>
             <tr>
                 <th>フラグ゙ID</th>
